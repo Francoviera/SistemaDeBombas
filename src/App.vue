@@ -1,14 +1,14 @@
 <template>
   <ion-app id="app">
     <ion-toolbar color="dark">
-      <ion-buttons slot="secondary">
+      <ion-buttons slot="start">
         <ion-button>
-          <router-link to="/"><ion-icon name="home"></ion-icon></router-link> 
+          <router-link to="/"><ion-icon style="font-size: 25px;" name="home"></ion-icon></router-link> 
         </ion-button>
       </ion-buttons>
       <ion-buttons slot="primary">
         <ion-button color="danger">
-          <router-link to="/configuracion"><ion-icon name="settings"></ion-icon></router-link>     
+          <router-link to="/configuracion"><ion-icon style="font-size: 25px;" name="settings"></ion-icon></router-link>     
         </ion-button>
       </ion-buttons>
       <ion-title>Water Status</ion-title>

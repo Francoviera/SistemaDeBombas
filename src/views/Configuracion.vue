@@ -27,10 +27,10 @@
 
                 <ion-card-content>
                     <ion-list>
-                        <ion-item v-for="molino of molinos" v-bind:key="molino.ipLocal">
-                            <ion-label>{{molino.nombre}}</ion-label>
-                            <ion-label size="small">{{molino.ipLocal}}</ion-label>
-                            <ion-button size="small" color="danger" @click="eliminar(molino.ipLocal)">Eliminar</ion-button>
+                        <ion-item v-for="bomba of bombas" v-bind:key="bomba.ipLocal">
+                            <ion-label>{{bomba.nombre}}</ion-label>
+                            <ion-label size="small">{{bomba.ipLocal}}</ion-label>
+                            <ion-button size="small" color="danger" @click="eliminar(bomba.ipLocal)">Eliminar</ion-button>
                         </ion-item>
                     </ion-list>
                 </ion-card-content>
@@ -42,7 +42,7 @@
     export default {
         data(){
             return{
-                molinos: [],
+                bombas: [],
                 nombre: '',
                 ipLocal: '',
                 ipRemota: '',
@@ -50,16 +50,16 @@
             }
         },
         created(){
-            let datosDB= JSON.parse(localStorage.getItem('molinos'));
+            let datosDB= JSON.parse(localStorage.getItem('bombas'));
             if(datosDB === null){
-                this.molinos = [];
+                this.bombas = [];
             }else{
-                this.molinos = datosDB;
+                this.bombas = datosDB;
             }
         },
         methods:{
             agregar(){
-                this.molinos.push({
+                this.bombas.push({
                     nombre: this.nombre,
                     ipLocal: this.ipLocal,
                     ipRemota: this.ipRemota,
@@ -67,11 +67,11 @@
                 this.nombre= '';
                 this.ipLocal= '';
                 this.ipRemota= '';
-                localStorage.setItem('molinos', JSON.stringify(this.molinos));
+                localStorage.setItem('bombas', JSON.stringify(this.bombas));
             },
             eliminar(index){
-                this.molinos.splice(index, 1);
-                localStorage.setItem('molinos', JSON.stringify(this.molinos));
+                this.bombas.splice(index, 1);
+                localStorage.setItem('bombas', JSON.stringify(this.bombas));
             }
         }
     }
