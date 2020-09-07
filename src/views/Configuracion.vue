@@ -22,17 +22,37 @@
             
             <ion-card>
                 <ion-card-header>
-                    <ion-card-subtitle>Molinos</ion-card-subtitle>
+                    <ion-card-subtitle>Conexiones</ion-card-subtitle>
                 </ion-card-header>
 
                 <ion-card-content>
-                    <ion-list>
-                        <ion-item v-for="bomba of bombas" v-bind:key="bomba.ipLocal">
-                            <ion-label>{{bomba.nombre}}</ion-label>
-                            <ion-label size="small">{{bomba.ipLocal}}</ion-label>
-                            <ion-button size="small" color="danger" @click="eliminar(bomba.ipLocal)">Eliminar</ion-button>
-                        </ion-item>
-                    </ion-list>
+                    <ion-grid>
+                        <ion-row >
+                            <ion-col size="3.5">
+                            <ion-label style="color: black;">Nombre</ion-label> 
+                            </ion-col>
+                            <ion-col size="3.5">
+                            <ion-label style="color: black;">Ip Local</ion-label> 
+                            </ion-col>
+                            <ion-col size="3.5">
+                            <ion-label style="color: black;">Ip Remota</ion-label> 
+                            </ion-col>
+                        </ion-row>
+                        <ion-row v-for="bomba of bombas" v-bind:key="bomba.ipLocal">
+                            <ion-col size="3.5">
+                                <ion-label>{{bomba.nombre}}</ion-label>
+                            </ion-col>
+                            <ion-col size="3.5">
+                                <ion-label >{{bomba.ipLocal}}</ion-label>
+                            </ion-col>
+                            <ion-col size="3.5">
+                                <ion-label >{{bomba.ipRemota}}</ion-label>
+                            </ion-col>
+                            <ion-col size="1.5">
+                                <ion-icon style="font-size: 20px;" name="md-trash" color="danger" @click="eliminar(bomba.ipLocal)"></ion-icon>
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>
                 </ion-card-content>
             </ion-card>
         </form>
